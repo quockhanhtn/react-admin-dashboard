@@ -1,55 +1,43 @@
-import React, {useRef} from 'react'
+import React, { useRef } from 'react';
 
-import './dropdown.css'
+import './Dropdown.css';
 
-const clickOutsideRef = (content_ref, toggle_ref) => {
-    document.addEventListener('mousedown', (e) => {
-        // user click toggle
-        if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
-            content_ref.current.classList.toggle('active')
-        } else {
-            // user click outside toggle and content
-            if (content_ref.current && !content_ref.current.contains(e.target)) {
-                content_ref.current.classList.remove('active')
-            }
-        }
-    })
+
+const clickOutsideRef = (contentRef, toggleRef) => {
+  document.addEventListener('mousedown', (e) => {
+    // user click toggle
+    if (toggleRef.current && toggleRef.current.contains(e.target)) {
+      contentRef.current.classList.toggle('active')
+    } else {
+      // user click outside toggle and content
+      if (contentRef.current && !contentRef.current.contains(e.target)) {
+        contentRef.current.classList.remove('active')
+      }
+    }
+  })
 }
 
-const Dropdown = props => {
 
-    const dropdown_toggle_el = useRef(null)
-    const dropdown_content_el = useRef(null)
+const Dropdown = ({ icon, badge, customToggle, contentData, renderItems, renderFooter }) => {
 
-    clickOutsideRef(dropdown_content_el, dropdown_toggle_el)
-    
-    return (
-        <div className='dropdown'>
-            <button ref={dropdown_toggle_el} className="dropdown__toggle">
-                {
-                    props.icon ? <i className={props.icon}></i> : ''
-                }
-                {
-                    props.badge ? <span className='dropdown__toggle-badge'>{props.badge}</span> : ''
-                }
-                {
-                    props.customToggle ? props.customToggle() : ''
-                }
-            </button>
-            <div ref={dropdown_content_el} className="dropdown__content">
-                {
-                    props.contentData && props.renderItems ? props.contentData.map((item, index) => props.renderItems(item, index)) : ''
-                }
-                {
-                    props.renderFooter ? (
-                        <div className="dropdown__footer">
-                            {props.renderFooter()}
-                        </div>
-                    ) : ''
-                }
-            </div>
-        </div>
-    )
-}
+  const dropdownToggleEl = useRef(null);
+  const dropdownContentEl = useRef(null);
 
-export default Dropdown
+  clickOutsideRef(dropdownContentEl, dropdownToggleEl);
+
+  return (
+    <div className="dropdown">
+      <button ref={dropdownToggleEl} className="dropdown__toggle">
+        {icon ? <i className={icon}></i> : ''}
+        {badge ? <span className="dropdown__toggle-badge">{badge}</span> : ''}
+        {customToggle ? customToggle() : ''}
+      </button>
+      <div ref={dropdownContentEl} className="dropdown__content">
+        {contentData && renderItems ? contentData.map((item, index) => renderItems(item, index)) : ''}
+        {renderFooter ? (<div className="dropdown__footer"> {renderFooter()} </div>) : ''}
+      </div>
+    </div>
+  )
+};
+
+export default Dropdown;

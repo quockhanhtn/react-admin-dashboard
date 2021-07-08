@@ -1,21 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import Table from '../components/table/Table'
+import Table from '../components/Table/Table'
 
-import customerList from '../assets/JsonData/customers-list.json'
+import customerList from '../assets/JsonData/customers-list.json';
 
-const customerTableHead = [
-    '',
-    'name',
-    'email',
-    'phone',
-    'total orders',
-    'total spend',
-    'location'
-]
-
-const renderHead = (item, index) => <th key={index}>{item}</th>
-
+const customerTableHead = ['#', 'name', 'email', 'phone', 'total orders', 'total spend', 'location'];
+const renderHead = (item, index) => <th key={index}>{item}</th>;
 const renderBody = (item, index) => (
     <tr key={index}>
         <td>{item.id}</td>
@@ -26,25 +16,28 @@ const renderBody = (item, index) => (
         <td>{item.total_spend}</td>
         <td>{item.location}</td>
     </tr>
-)
+);
+
 
 const Customers = () => {
     return (
-        <div>
-            <h2 className="page-header">
-                customers
-            </h2>
+        <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <div className="card">
-                        <div className="card__body">
-                            <Table
-                                limit='10'
-                                headData={customerTableHead}
-                                renderHead={(item, index) => renderHead(item, index)}
-                                bodyData={customerList}
-                                renderBody={(item, index) => renderBody(item, index)}
-                            />
+                    <h2 className="page-header">Customers</h2>
+                </div>
+                <div className="row">
+                    <div className="col-12">
+                        <div className="card">
+                            <div className="card__body">
+                                <Table
+                                    limit='10'
+                                    headData={customerTableHead}
+                                    renderHead={(item, index) => renderHead(item, index)}
+                                    bodyData={customerList}
+                                    renderBody={(item, index) => renderBody(item, index)}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,4 +46,4 @@ const Customers = () => {
     )
 }
 
-export default Customers
+export default Customers;
