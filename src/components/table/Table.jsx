@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import './Table.css';
 
 const Table = ({ bodyData, renderBody, headData, renderHead, limit }) => {
-
   const initDataShow = limit && bodyData ? bodyData.slice(0, Number(limit)) : bodyData
   const [dataShow, setDataShow] = useState(initDataShow)
 
@@ -16,14 +15,13 @@ const Table = ({ bodyData, renderBody, headData, renderHead, limit }) => {
     range = [...Array(pages).keys()]
   }
 
-  const [currPage, setCurrPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
 
   function selectPage(page) {
     const start = Number(limit) * page
     const end = start + Number(limit)
-
     setDataShow(bodyData.slice(start, end))
-    setCurrPage(page)
+    setCurrentPage(page)
   }
 
   return (
@@ -39,7 +37,7 @@ const Table = ({ bodyData, renderBody, headData, renderHead, limit }) => {
           <div className="table__pagination">
             {
               range.map((item, index) => (
-                <div key={index} className={`table__pagination-item ${currPage === index ? 'active' : ''}`} onClick={() => selectPage(index)}>
+                <div key={index} className={`table__pagination-item ${currentPage === index ? 'active' : ''}`} onClick={() => selectPage(index)}>
                   {item + 1}
                 </div>
               ))

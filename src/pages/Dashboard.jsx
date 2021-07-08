@@ -7,11 +7,14 @@ import StatusCard from '../components/StatusCard/StatusCard';
 import Table from '../components/Table/Table';
 import Badge from '../components/Badge/Badge';
 
-import statusCardItems from '../assets/JsonData/status-card-data.json';
-const chartOptions = loadChartOptions();
-const topCustomers = loadTopCustomer();
-const latestOrders = loadLastOrders();
+const statusCardItems = [
+  { icon: "bx bx-shopping-bag", count: "1,995", title: "Total sales" },
+  { icon: "bx bx-cart", count: "2,001", title: "Daily visits" },
+  { icon: "bx bx-dollar-circle", count: "$2,632", title: "Total income" },
+  { icon: "bx bx-receipt", count: "1,711", title: "Total orders" }
+];
 const orderStatus = { "shipping": "primary", "pending": "warning", "paid": "success", "refund": "danger" };
+const { chartOptions, topCustomers, latestOrders } = loadData();
 
 const renderCustomerHead = (item, index) => <th key={index}>{item}</th>;
 const renderCustomerBody = (item, index) => (
@@ -107,9 +110,9 @@ const Dashboard = () => {
   )
 }
 
-//#region Generate data for chart
-function loadChartOptions() {
-  return {
+
+function loadData() {
+  let _chartOptions = {
     series: [{
       name: 'Online Customers',
       data: [40, 70, 20, 90, 36, 80, 30, 91, 60]
@@ -126,94 +129,30 @@ function loadChartOptions() {
       legend: { position: 'top' },
       grid: { show: false }
     }
-  }
-}
-
-function loadTopCustomer() {
-  return {
-    head: [
-      'user',
-      'total orders',
-      'total spending'
-    ],
+  };
+  let _topCustomers = {
+    head: ['user', 'total orders', 'total spending'],
     body: [
-      {
-        "username": "john doe",
-        "order": "490",
-        "price": "$15,870"
-      },
-      {
-        "username": "frank iva",
-        "order": "250",
-        "price": "$12,251"
-      },
-      {
-        "username": "anthony baker",
-        "order": "120",
-        "price": "$10,840"
-      },
-      {
-        "username": "frank iva",
-        "order": "110",
-        "price": "$9,251"
-      },
-      {
-        "username": "anthony baker",
-        "order": "80",
-        "price": "$8,840"
-      }
+      { username: "john doe", order: "490", price: "$15,870" },
+      { username: "frank iva", order: "250", price: "$12,251" },
+      { username: "anthony baker", order: "120", price: "$10,840" },
+      { username: "frank iva", order: "110", price: "$9,251" },
+      { username: "anthony baker", order: "80", price: "$8,840" }
     ]
-  }
-}
+  };
 
-function loadLastOrders() {
-  return {
-    header: [
-      "order id",
-      "user",
-      "total price",
-      "date",
-      "status"
-    ],
+  let _latestOrders = {
+    header: ["order id", "user", "total price", "date", "status"],
     body: [
-      {
-        id: "#OD1711",
-        user: "john doe",
-        date: "17 Jun 2021",
-        price: "$900",
-        status: "shipping"
-      },
-      {
-        id: "#OD1712",
-        user: "frank iva",
-        date: "1 Jun 2021",
-        price: "$400",
-        status: "paid"
-      },
-      {
-        id: "#OD1713",
-        user: "anthony baker",
-        date: "27 Jun 2021",
-        price: "$200",
-        status: "pending"
-      },
-      {
-        id: "#OD1712",
-        user: "frank iva",
-        date: "1 Jun 2021",
-        price: "$400",
-        status: "paid"
-      },
-      {
-        id: "#OD1713",
-        user: "anthony baker",
-        date: "27 Jun 2021",
-        price: "$200",
-        status: "refund"
-      }
+      { id: "#OD1711", user: "john doe", date: "17 Jun 2021", price: "$900", status: "shipping" },
+      { id: "#OD1712", user: "frank iva", date: "1 Jun 2021", price: "$400", status: "paid" },
+      { id: "#OD1713", user: "anthony baker", date: "27 Jun 2021", price: "$200", status: "pending" },
+      { id: "#OD1712", user: "frank iva", date: "1 Jun 2021", price: "$400", status: "paid" },
+      { id: "#OD1713", user: "anthony baker", date: "27 Jun 2021", price: "$200", status: "refund" }
     ]
-  }
+  };
+
+  return { chartOptions: _chartOptions, topCustomers: _topCustomers, latestOrders: _latestOrders };
 }
-//#endregion
 
 export default Dashboard;

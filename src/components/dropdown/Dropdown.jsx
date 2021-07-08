@@ -19,7 +19,6 @@ const clickOutsideRef = (contentRef, toggleRef) => {
 
 
 const Dropdown = ({ icon, badge, customToggle, contentData, renderItems, renderFooter }) => {
-
   const dropdownToggleEl = useRef(null);
   const dropdownContentEl = useRef(null);
 
