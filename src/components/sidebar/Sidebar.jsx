@@ -1,23 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import SidebarItem from './SidebarItem/SidebarItem';
+
 import './Sidebar.css';
 import logo from '../../assets/images/logo.svg';
 
-import listSidebarItems from '../../assets/JsonData/sidebar_routes.json';
 
-
-const SidebarItem = ({ isActive, icon, title }) => {
-  return (
-    <div className="sidebar__item">
-      <div className={`sidebar__item-inner ${isActive ? 'active' : ''}`}>
-        <i className={icon}></i>
-        <span>{title}</span>
-      </div>
-    </div>
-  )
-}
-
+const listSidebarItems = [
+  { displayName: 'Dashboard', icon: 'bx bx-category-alt', route: '/' },
+  { displayName: 'Customers', icon: 'bx bx-user-pin', route: '/customers' },
+  { displayName: 'Products', icon: 'bx bx-package', route: '/products' },
+  { displayName: 'Orders', icon: 'bx bx-cart', route: '/orders' },
+  { displayName: 'Analytics', icon: 'bx bx-bar-chart-alt', route: '/analytics' },
+  { displayName: 'categories', icon: 'bx bx-list-ol', route: '/categories' },
+  { displayName: 'discounts', icon: 'bx bx-gift', route: '/discounts' },
+  { displayName: 'inventories', icon: 'bx bx-store-alt', route: '/inventories' },
+  { displayName: 'settings', icon: 'bx bx-cog', route: '/settings' }
+];
 
 const Sidebar = ({ location }) => {
   return (
@@ -31,12 +31,13 @@ const Sidebar = ({ location }) => {
             <SidebarItem
               isActive={item.route === location.pathname}
               icon={item.icon}
-              title={item.display_name} />
+              title={item.displayName} />
           </Link>
         ))
       }
     </div >
   );
-}
+};
+
 
 export default Sidebar;
