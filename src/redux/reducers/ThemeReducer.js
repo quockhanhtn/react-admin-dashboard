@@ -1,4 +1,5 @@
 const ThemeReducer = (state = {}, action) => {
+  console.log(action)
   switch (action.type) {
     case 'SET_MODE':
       return { ...state, mode: action.payload }

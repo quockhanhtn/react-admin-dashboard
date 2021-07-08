@@ -7,7 +7,7 @@ import './ThemeMenu.css';
 
 const { modeSettings, colorSettings } = loadSettings();
 
-const clickOutsideRef = (contentRef, toggleRef) => {
+function clickOutsideRef(contentRef, toggleRef) {
   document.addEventListener('mousedown', (e) => {
     // user click toggle
     if (toggleRef.current && toggleRef.current.contains(e.target)) {
@@ -21,6 +21,9 @@ const clickOutsideRef = (contentRef, toggleRef) => {
   })
 }
 
+function setActiveMenu(menuRef) { menuRef.current.classList.add('active'); }
+function closeMenu(menuRef) { menuRef.current.classList.remove('active'); }
+
 const ThemeMenu = () => {
 
   const menuRef = useRef(null);
@@ -28,21 +31,18 @@ const ThemeMenu = () => {
 
   clickOutsideRef(menuRef, menuToggleRef);
 
-  const setActiveMenu = () => menuRef.current.classList.add('active');
-  const closeMenu = () => menuRef.current.classList.remove('active');
-
   const [currentMode, setCurrentMode] = useState('light');
   const [currentColor, setCurrentColor] = useState('blue');
 
   const dispatch = useDispatch();
 
-  const setMode = mode => {
+  function setMode(mode) {
     setCurrentMode(mode.id)
     localStorage.setItem('themeMode', mode.class)
     dispatch(ThemeAction.setMode(mode.class))
   }
 
-  const setColor = color => {
+  function setColor(color) {
     setCurrentColor(color.id)
     localStorage.setItem('colorMode', color.class)
     dispatch(ThemeAction.setColor(color.class))
@@ -54,17 +54,16 @@ const ThemeMenu = () => {
 
     if (themeClass !== undefined) setCurrentMode(themeClass.id)
     if (colorClass !== undefined) setCurrentColor(colorClass.id)
-
   }, []);
 
   return (
     <div>
-      <button ref={menuToggleRef} className="dropdown__toggle" onClick={() => setActiveMenu()}>
+      <button ref={menuToggleRef} className="dropdown__toggle" onClick={() => setActiveMenu(menuRef)}>
         <i className='bx bx-palette'></i>
       </button>
       <div ref={menuRef} className="theme-menu">
         <h4>Theme settings</h4>
-        <button className="theme-menu__close" onClick={() => closeMenu()}>
+        <button className="theme-menu__close" onClick={() => closeMenu(menuRef)}>
           <i className='bx bx-x'></i>
         </button>
         <div className="theme-menu__select">

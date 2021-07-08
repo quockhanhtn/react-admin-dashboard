@@ -10,7 +10,7 @@ import reducers from './redux/reducers';
 import './assets/boxicons-2.0.7/css/boxicons.min.css';
 import './assets/css/bootstrap-grid.css';
 import './assets/css/themes.css';
-import './assets/css/index.css';
+import './index.css';
 
 import App from './App';
 

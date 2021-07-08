@@ -18,7 +18,7 @@ const Table = ({ bodyData, renderBody, headData, renderHead, limit }) => {
 
   const [currPage, setCurrPage] = useState(0);
 
-  const selectPage = page => {
+  function selectPage(page) {
     const start = Number(limit) * page
     const end = start + Number(limit)
 
@@ -26,13 +26,12 @@ const Table = ({ bodyData, renderBody, headData, renderHead, limit }) => {
     setCurrPage(page)
   }
 
-
   return (
     <div>
       <div className="table-wrapper">
         <table>
           {headData && renderHead ? <thead><tr>{headData.map((item, index) => renderHead(item, index))}</tr></thead> : ''}
-          {bodyData && renderBody ? <tbody> {dataShow.map((item, index) => renderBody(item, index))}</tbody> : ''}
+          {bodyData && renderBody ? <tbody>{dataShow.map((item, index) => renderBody(item, index))}</tbody> : ''}
         </table>
       </div>
       {
