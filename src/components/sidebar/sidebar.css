@@ -1,11 +1,12 @@
 .sidebar {
   min-width: var(--sidebar-width);
-  height: 100vh;
-  position: fixed;
+  height: auto;
+  /* position: fixed;
   left: 0;
-  top: 0;
+  top: 0; */
   background-color: var(--main-bg);
   box-shadow: var(--box-shadow);
+  border-right: 1px solid #eee;
 }
 
 .sidebar__logo {

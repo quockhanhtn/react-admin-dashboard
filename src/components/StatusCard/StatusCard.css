@@ -1,5 +1,5 @@
 .status-card {
-  padding: 30px;
+  padding: 20px;
   display: flex;
   align-items: center;
   background-color: var(--main-bg);
@@ -34,8 +34,12 @@
 }
 
 .status-card__info > h4 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 10px;
+}
+
+.status-card__info > span {
+  font-size: 1rem;
 }
 
 .status-card::before {

@@ -46,7 +46,7 @@ const Dashboard = () => {
       </div>
       <div className="row">
         {/* card */}
-        <div className="col-lg-6 col-md-12">
+        <div className="col-lg-5 col-md-12">
           <div className="row">
             {
               statusCardItems.map((item, index) =>
@@ -56,7 +56,7 @@ const Dashboard = () => {
           </div>
         </div>
         {/* chart */}
-        <div className="col-lg-6 col-md-12">
+        <div className="col-lg-7 col-md-12">
           <div className="card full-height">
             <Chart
               options={themeReducer === 'theme-mode-dark' ?

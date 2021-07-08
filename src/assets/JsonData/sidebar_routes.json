@@ -30,13 +30,13 @@
     "icon": "bx bx-list-ol"
   },
   {
-    "display_name": "discount",
-    "route": "/discount",
+    "display_name": "discounts",
+    "route": "/discounts",
     "icon": "bx bx-gift"
   },
   {
-    "display_name": "inventory",
-    "route": "/inventory",
+    "display_name": "inventories",
+    "route": "/inventories",
     "icon": "bx bx-store-alt"
   },
   {
