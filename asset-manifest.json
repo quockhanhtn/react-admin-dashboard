@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-admin-dashboard/static/css/main.ba44aa3d.chunk.css",
+    "main.js": "/react-admin-dashboard/static/js/main.8ba5d6ad.chunk.js",
+    "main.js.map": "/react-admin-dashboard/static/js/main.8ba5d6ad.chunk.js.map",
+    "runtime-main.js": "/react-admin-dashboard/static/js/runtime-main.2ba06c11.js",
+    "runtime-main.js.map": "/react-admin-dashboard/static/js/runtime-main.2ba06c11.js.map",
+    "static/js/2.952c08c4.chunk.js": "/react-admin-dashboard/static/js/2.952c08c4.chunk.js",
+    "static/js/2.952c08c4.chunk.js.map": "/react-admin-dashboard/static/js/2.952c08c4.chunk.js.map",
+    "static/js/3.b5a52bcb.chunk.js": "/react-admin-dashboard/static/js/3.b5a52bcb.chunk.js",
+    "static/js/3.b5a52bcb.chunk.js.map": "/react-admin-dashboard/static/js/3.b5a52bcb.chunk.js.map",
+    "index.html": "/react-admin-dashboard/index.html",
+    "static/css/main.ba44aa3d.chunk.css.map": "/react-admin-dashboard/static/css/main.ba44aa3d.chunk.css.map",
+    "static/js/2.952c08c4.chunk.js.LICENSE.txt": "/react-admin-dashboard/static/js/2.952c08c4.chunk.js.LICENSE.txt",
+    "static/media/avatar.ec69e743.jpg": "/react-admin-dashboard/static/media/avatar.ec69e743.jpg",
+    "static/media/boxicons.min.css": "/react-admin-dashboard/static/media/boxicons.cbd149c5.ttf",
+    "static/media/logo.bba2d37c.svg": "/react-admin-dashboard/static/media/logo.bba2d37c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2ba06c11.js",
+    "static/js/2.952c08c4.chunk.js",
+    "static/css/main.ba44aa3d.chunk.css",
+    "static/js/main.8ba5d6ad.chunk.js"
+  ]
+}
